@@ -23,28 +23,18 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
 
-var webpack = require('webpack');
 
 // es6 and webpack
-if (app.get('env') === 'development')
-{
-  let config = require('./webpack.config.dev');
-  let compiler = webpack(config);
+// if (app.get('env') === 'development') {
+  var webpack = require('webpack');
+  var config = require('./webpack.config.dev');
+  var compiler = webpack(config);
   app.use(require('webpack-dev-middleware')(compiler, {
     noInfo: true,
     publicPath: config.output.publicPath
   }));
   app.use(require('webpack-hot-middleware')(compiler));
-}
-else if (app.get('env') === 'production')
-{
-  let config = require('./webpack.config.prod');
-  let compiler = webpack(config);
-  app.use(require('webpack-hot-middleware')(compiler, {
-    noInfo: true,
-    publicPath: config.output.publicPath
-  }));
-}
+// }
 
 app.use('/', routes);
 app.use('/api', api);
