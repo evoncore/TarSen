@@ -1,5 +1,5 @@
 import React from 'react'
-import Nav from './ui-items/Nav'
+import Nav from './ui-items/nav/Nav'
 
 class App extends React.Component {
 
