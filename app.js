@@ -25,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'bower_components')));
 
 
 // es6 and webpack
+app.set('env', 'development');
 if (app.get('env') === 'development') {
   var webpack = require('webpack');
   var config = require('./webpack.config.dev');
@@ -40,10 +41,6 @@ else if (app.get('env') === 'production')
   var webpack = require('webpack');
   var config = require('./webpack.config.prod');
   var compiler = webpack(config);
-  app.use(require('webpack-dev-middleware')(compiler, {
-    noInfo: true,
-    publicPath: config.output.publicPath
-  }));
   app.use(require('webpack-hot-middleware')(compiler));
 }
 
