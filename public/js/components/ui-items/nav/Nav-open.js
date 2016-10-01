@@ -31,11 +31,11 @@ export default function openNav(e) {
           this.borderLeft.style.top = this.links[i].offsetTop + 'px';
         }
       }
-      
+
       this.borderLeft.style.height = getComputedStyle(this.links[0]).height;
     }
 
-    if ((e.clientX + (contextMenu.offsetWidth + navLinkWidth)) > window.innerWidth) {
+    if ((e.clientX + (contextMenu.offsetWidth + navLinkWidth)) > window.innerWidth) { // Right
       this.setState({
         styles: {
           left: e.clientX - contextMenu.offsetWidth + 1,
@@ -47,7 +47,7 @@ export default function openNav(e) {
         this.links[i].children[0].classList.remove('align-right');
         this.links[i].children[0].classList.add('align-left');
       }
-    } else {
+    } else { // Right and Bottom
       this.setState({
         styles: {
           left: e.clientX,
@@ -61,7 +61,7 @@ export default function openNav(e) {
       }
     }
 
-    if (contextMenu.offsetLeft == 0) {
+    if (contextMenu.offsetLeft <= this.borderLeft.offsetWidth) { // Left
       this.setState({
         styles: {
           left: 3,
@@ -84,7 +84,7 @@ export default function openNav(e) {
         this.links[i].children[0].classList.remove('align-right');
         this.links[i].children[0].classList.add('align-left');
       }
-    } else if ((e.clientY + contextMenu.offsetHeight) > window.innerHeight) {
+    } else if ((e.clientY + contextMenu.offsetHeight) > window.innerHeight) { // Left and Bottom
       this.setState({
         styles: {
           left: 3,

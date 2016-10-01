@@ -3,24 +3,28 @@
 
 *
   outline none
-  
+
 ul
   padding 0
   margin 0
-  
+  list-style none
+
 a
   &:hover, &:active, &:focus
     text-decoration none
-  
+
 // End Reset
-  
+
+
+// Main Settings
+
 html, body
   height 100%
-  
+
 body
   background url('../img/noise-pattern-with-subtle-cross-lines.png'), #F0EFED
   font-family $mf
-  
+
 h1
   color #222
   font-family $mf
@@ -37,11 +41,28 @@ h1
   background #FBFBFB
   position relative
   bs_pattern((#FBFBFB / 2))
-  
-  
+
+.icon
+  font-family $if
+
+button
+  border 0
+  background #333
+  color #fff
+  padding 10px 15px
+  transition()
+  bs_pattern((#333 / 2))
+  font-size 16px
+  margin-top 20px
+  &:hover
+    color $mc
+  &:active
+    bs_pattern_negative((#333 / 2))
+
+
+// Root
+
+
 #root
   height 100%
   padding-top 40px
-  
-.icon
-  font-family $if

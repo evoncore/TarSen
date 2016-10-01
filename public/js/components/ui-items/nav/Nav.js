@@ -51,9 +51,9 @@ class Nav extends React.Component {
 
   render() {
     return (
-      <nav  className={this.state.isOpen ? 'show' : 'hide'} 
+      <nav  className={this.state.isOpen ? 'show' : 'hide'}
             style={this.state.styles}
-            ref="contextMenu" 
+            ref="contextMenu"
             id="context-menu">
 
         <ul>
